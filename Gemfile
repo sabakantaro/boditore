@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+source 'https://rubygems.org'
+
 ruby '2.5.1'
 
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
@@ -37,8 +39,11 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
 end
 
 gem 'devise'
+gem 'omniauth-twitter'
+gem 'omniauth', '1.9.1'
 gem 'carrierwave'
 gem 'mini_magick'

@@ -1,0 +1,65 @@
+<header class="header">
+    <div class="wrapper">
+      <%= link_to "Boditore", root_path, id: "logo" %>
+        <nav class="nav">
+          <ul class="nav__wrapper">
+            <% if user_signed_in? %>
+              <li class="nav__item">
+              
+                <i class="far fa-paper-plane fa-lg"></i>
+                
+              </li>
+              <li class="nav__item">
+              
+                <i class="fas fa-list fa-lg"></i>
+                
+              </li>
+              <li class="nav__item">
+                <%= link_to  users_path do %>
+                <i class="fas fa-users fa-lg"></i>
+                <% end %>
+              </li>
+              <li class="nav__item">
+              
+                <i class="far fa-bell fa-lg"></i>
+                
+              </li>
+            <% else %>
+              <li class="nav__item">
+              
+                <i class="fas fa-list fa-lg"></i>
+                
+              </li>
+            <% end %>
+          <% if user_signed_in? %>
+            <li class="nav__item">
+              <ul class="gnav">
+                <li>
+                  <a href="#"><i class="far fa-user-circle fa-lg"></i><b class="caret"></b>&xdtri;</a>
+                  <ul>
+                    <li><%= link_to "プロフィール", current_user %></li>
+                    <li><%= link_to "プロフィール編集", edit_user_registration_path %></li>
+
+                    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li class="nav__item">
+              <ul class="gnav">
+                <li>
+                  <a href="#"><i class="far fa-user-circle fa-lg"></i><b class="caret"></b>&xdtri;</a>
+                  <ul>
+                    <li><%= link_to "新規登録", new_user_registration_path %></li>
+                    <li><%= link_to "ログイン", new_user_session_path %></li>
+                    
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>

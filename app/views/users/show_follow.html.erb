@@ -1,0 +1,31 @@
+<div class="notifications">
+
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1>フォロー</h1>
+
+      </section>
+      <section class="stats">
+          <div class="user_avatars">
+            <% @users.each do |user| %>
+            <% if user.picture? %>
+            <%= image_tag user.picture, size: "50x50", class:"user-icon"%>
+            <% else %>
+            <%= image_tag "default.jpg", alt: "user-icon", size: "50x50", class: "user-icon" %>
+            <% end %>
+            <%= link_to user.name, user %>
+            <hr>
+            <% end %>
+          </div>
+      </section>
+
+      <span><%= link_to "プロフィールに戻る", @user %></span>
+
+    </aside>
+
+  </div>
+
+</div>
+
+<div class="bg"></div>

@@ -1,0 +1,42 @@
+<div class="user__wrapper">
+  <div class="user__show">
+    <ul class="user__show__top">
+        <li class="user__show__top__icon">
+            <% if @user.picture? %>
+            <%= image_tag @user.picture, alt: "user-icon", size: "200",  class: "user-icon" %>
+            <% else %>
+            <%= image_tag "default.jpg", alt: "user-icon", size: "200", class: "user-icon" %>
+            <% end %>
+        </li>
+        <li class="user__show__top__content">
+          <% if @user.id == current_user.id %>
+            <button class="btn slide-bg"><span></span><%= link_to "プロフィール編集", edit_user_registration_path  %></button>
+            <button class="btn slide-bg"><span></span><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+          <% else %>
+            <%= render 'follow_form' %>
+
+          <% end %>
+        </li>
+      </ul>
+      <ul class="user__show__bottom">
+        <li class="user__show__bottom__name">
+            <h3><%= @user.name %></h3>
+        </li>
+        
+        
+      </ul>
+    </div>
+
+    <div class="user__show__post__index">
+      <div class="tabs">
+        <input id="all" type="radio" name="tab_item" checked>
+        <label class="tab_item" for="all">自分の投稿</label>
+        <input id="favorite" type="radio" name="tab_item">
+        <label class="tab_item" for="favorite">お気に入り投稿</label>
+        <div class="tab_content" id="all_content">
+
+        </div>
+                                                                                                                
+      </div>
+    </div>
+</div>
